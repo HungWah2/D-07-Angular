@@ -1,4 +1,132 @@
-<div *ngFor="let i of products">
+<style>
+    @import url('https://fonts.googleapis.com/css2?family=Raleway:wght@300&display=swap');
+
+    style {
+        color: #161616;
+        font-size: 12px;
+        font-weight: 400;
+    }
+</style>
+
+<div class="left-panel">
+<div>
+    <div style="display: flex; margin-left: 2.5%;" class="productPointer">
+        <div class="selected">
+            Woman
+        </div>
+        <div style="margin-top: -0.17%;">
+            <mat-icon style="transform: scale(60%);">chevron_right</mat-icon>
+        </div>
+        Pastel Jacket With Bejewelled Collar
+    </div>
+
+    <div class="pages">
+    <div style="display: flex; margin-left: 2.5%; margin-left: 80%; margin-top: -1.56%;" class="productPages">
+        <div style="margin-top: -0.17%;">
+            <mat-icon style="transform: scale(60%);">chevron_left</mat-icon>
+        </div>
+        Prev. 2 of 210 Next
+        <div style="margin-top: -0.17%;">
+            <mat-icon style="transform: scale(60%);">chevron_right</mat-icon>
+        </div>
+    </div>
+</div>
+
+    <div style="margin-top: 4%;">
+        <div style="display: flex; margin-left: 5%;">
+            <mat-icon>expand_less</mat-icon>
+        </div>
+        <div style="justify-content: flex-end;" *ngFor="let i of products">
+            <img style="transform: scale(100%); height: 0%; width: 8%; margin-left: 2%;" [src]="i.image">
+        </div>
+        <div style="display: flex; margin-left: 5%;"><mat-icon>expand_more</mat-icon></div>
+
+
+        <div style="display: flex;">
+            <img style="height: 10%; width: 25%;margin-top: -37%; margin-left: 12%;"
+                src="https://burst.shopifycdn.com/photos/man-in-white-and-light-tan-outfit.jpg?width=1200&format=pjpg&exif=1&iptc=1">
+        </div>
+    </div>
+</div>
+</div>
+<div class="rightDes">
+    <div class="productName">
+        <h1>Pastel Jacket With Bejewelled Collar</h1>
+    </div>
+    <div class="price">
+        99.00 USD
+    </div>
+    <div class="designer">
+        <span class="designerName">DESIGNER:</span>
+        <span> Mademoiselle Tambour</span>
+    </div>
+    <div>
+        <img class="dLogo" src="https://pbs.twimg.com/profile_images/695948917628919808/8HhDsf7V_400x400.jpg">
+    </div>
+    <div>
+        <div style="margin-top: 3%;">
+            <span class="color">COLOR:</span>
+            <span> Tobacco Brown</span>
+            <div class="palete">
+                <ul style="margin-left: -6%;">
+                    <li><img src="https://www.hyatts.com/eCom/images/4/471327.jpg"></li>
+                    <li><img
+                            src="data:image/jpeg;base64,/9j/4AAQSkZJRgABAQAAAQABAAD/2wCEAAkGBxISEhUSEhMWFRUXFR0VFRUXFxoYFRUVFRgYFxUVFRcYHSggGB0lHRcXITEhJSkrLi4uFx8zODMtNygtLisBCgoKDQ0NDg0NDysZFRkrKy03Kzc3LTcrLSsrKysrKystKysrKystKysrKysrKysrKysrKysrKysrKysrKysrK//AABEIAOEA4QMBIgACEQEDEQH/xAAYAAEBAQEBAAAAAAAAAAAAAAAAAQIDBv/EACQQAQADAAAFBQEBAQAAAAAAAAABEfAhMUGRsQJhcYGhEtHB/8QAFgEBAQEAAAAAAAAAAAAAAAAAAAUE/8QAFBEBAAAAAAAAAAAAAAAAAAAAAP/aAAwDAQACEQMRAD8A9rJeskTWwssALW0UEtQsAmSwFSCkoGhCgURQBFAmUJAUQAJSVgDcyxQL2ksALQAJgS9wWZ3ACii0gCIWtoTcjcgK2hYQ7gthG4ABuYAqBYLIgCylCgIAKm3EN0AiAADdBbBBZlLA/qNQv9fPcBEN0N0BUAA3kgsAAAAFgtCAWDeTdE3kFLN0AJCSgEWgEJlQEWRN1AUJBDbgoC17i3rAYIN4AAADeUXeQAANuAAKlAC2kztJZe0AogBK/RR9bsAIAtFCAqLCAFgBfz3DbiA6UG3AByFStwALKAIVFBNuB2UBK2haKAALAS1QBWbWAWJVAAFARQEFQCRQEgUBRv6AcitQASCgyooIEqBEItEAhSgILCAUUoCEL9qDIoAm3FTdAEUoBFlQZgUBqhdzAYlIgrUAF+4AQqAATHsV8Aqfa9kBQAKBAURdzAKACg7gCWpAFpvPstoCidwFhPsL9wdO6oA5lKgLBO4EIALAAJa2AFkAilAEBBvAAAAtIABIFFBABQAiiAu5htxAbC9YDAbqgLuQICptxU3gC9pEs3T3BQ3NAFhFAN4CN+AIoCKFAUAAQAEAABKAoANf0FgMgAAAEb8DeACtoRQAIAAAAAAAFTcgAAVAACACywgAAF3IWwGQAAADeAARTsCodgCigBFWEACdqAFCwQCQVAAFNuIJvJZvPubcQBSJ2kFrcQsBlK2hUBTcgAN4AALAAAAAAmAAAC1AEWUJAAAoNuIBQSUCpCpYN8RKj2AZkJJ2oDciwBF24lgEAbwBYXrASQWQAsAAkAFiATsBIEgAFgAbqEAAA1/XyADMhO5m6gAAiiAoigCLEAJK0AJvIsgAAAgCgCLRRIAAJC0FAd/07lALXyHABfUzAA1JIAT/AKADTIASz0AGYagAPSRv0AankRzAEgAA9IAvrZjmAIvo6AC+n/ievmAMzyWABQAf/9k=">
+                    </li>
+                    <li><img src="https://www.color-hex.com/palettes/1866.png"></li>
+                </ul>
+            </div>
+        </div>
+        <div>
+            size, counter, add
+        </div>
+        <div class="des">
+            <div class="desS">
+                DESCRIPTION:
+            </div>
+            <div class="detail">
+                Pastel Jacket With Bejewelled Collar exclusive pattern
+                by John Malkovich and printed on soft cotton fabric.
+                Made in Italy.
+            </div>
+            <ul class="specified">
+                <li>Quilted design</li>
+                <li>Contrasted faux-fur collar</li>
+                <li>Loops on the shoulders</li>
+                <li>Sided zip pockets</li>
+                <li>Two side pockets with one press stud fastening</li>
+                <li>Long sleeve with elastic cuffs</li>
+                <li>Zip fastening on the front section</li>
+            </ul>
+            <div class="measurement">
+                <div>
+                    Side length: 31.5 cm
+                </div>
+                <div>
+                    Back length: 56.5 cm
+                </div>
+            </div>
+            <div class="share">
+                SHARE THIS
+            </div>
+            <div>
+                <div class="logos" style="justify-content: flex-end;">
+                    <ul style="margin-left: -6%;">
+                        <li><img src="https://image.pngaaa.com/345/3584345-middle.png"></li>
+                        <li><img
+                                src="https://toppng.com/uploads/preview/twitter-logo-vector-grey-11549680332eye4q1nix2.png">
+                        </li>
+                        <li><img src="https://cdn2.iconfinder.com/data/icons/social-icons-grey/512/PINTEREST-512.png">
+                        </li>
+                        <li><img src="https://image.pngaaa.com/887/1216887-middle.png"></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- <div *ngFor="let i of products">
     <img [src]="i.image">
     
-</div>
+</div> -->
